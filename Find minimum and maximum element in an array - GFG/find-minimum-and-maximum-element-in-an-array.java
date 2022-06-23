@@ -58,14 +58,14 @@ class GFG {
 
 class Compute 
 {
-    static pair getMinMax(long arr[], long n)  
+    static pair getMinMax(long a[], long n)  
     {
         //Write your code here
-        pair ans = new pair(Long.MAX_VALUE, Long.MIN_VALUE);
-        for(int i=0; i<n; i++){
-            ans.first = Math.min(ans.first, arr[i]);
-            ans.second = Math.max(ans.second, arr[i]);
+        pair pair = new pair(a[0], a[0]);
+        for(int i=1; i<n; i++){
+            pair.first = Math.min(pair.first, a[i]);
+            pair.second = Math.max(pair.second, a[i]);
         }
-        return ans;
+        return pair;
     }
 }
