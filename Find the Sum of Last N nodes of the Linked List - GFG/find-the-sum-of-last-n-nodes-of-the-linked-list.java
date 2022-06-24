@@ -56,20 +56,20 @@ class Solution {
     //Return the sum of last k nodes
     public int sum(Node head, int k){
       //write code here
-        Node temp = head;
-        int count = 0;
-        int sum = 0;
-        while(temp!=null){
-            count++;
-            sum+=temp.data;
-            temp = temp.next;
-        }
-        temp = head;
-        count-=k;
-        while(count-->0){
-            sum-=temp.data;
-            temp = temp.next;
-        }
-        return sum;
+      Node temp = head;
+      int sum = 0;
+      int n = 0;
+      while(temp!=null){
+          sum+=temp.data;
+          temp = temp.next;
+          n++;
+      }
+      int count = n - k;
+      temp = head;
+      while(count-->0){
+          sum-=temp.data;
+          temp = temp.next;
+      }
+      return sum;
     }
 }
