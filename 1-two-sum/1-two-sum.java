@@ -33,3 +33,7 @@ class Solution {
         return ans;
     }
 }
+
+
+//Time Complexity : O(n+n) = O(2n) = O(n)
+//Space Complexity: O(n)
