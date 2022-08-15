@@ -1,48 +1,43 @@
 class Solution {
-    public static int firstOccurence(int[] nums, int target){
-        int start = 0;
-        int end = nums.length - 1;
-        int result = -1;
-        while(start<=end){
-            int mid = start + (end - start)/2;
-            if(nums[mid]==target){
-                result = mid;
-                end = mid - 1;
-            }
-            else if(nums[mid]<target){
-                start = mid + 1;
-            }
-            else{
-                end = mid - 1;
-            }
-        }
-        return result;
+    public int findStartPosition(int[] a, int target){
+	    int left = 0;
+        int right = a.length-1;
+	    int start = -1;
+	
+	    while(left<=right){
+		    int mid = left + (right-left)/2;
+		    if (a[mid] == target){
+				start = mid; 
+				right = mid-1; 
+		    }else if (target > a[mid]) left = mid+1;
+		    else right = mid-1; 
+	    }
+	    return start;
+    }
+
+    public int findEndPosition(int[] a, int target){
+	    int left = 0;
+	    int right = a.length-1;
+	    int end = -1;
+	
+	    while(left <= right){
+		int mid = left + (right-left)/2;
+		if (a[mid] == target){
+			end = mid;	
+			left = mid+1;
+		}else if (target > a[mid]) left = mid +1;
+		else right = mid -1;
+	    }
+	    return end;
     }
     
-    public static int lastOccurence(int[] nums, int target){
-        int start = 0;
-        int end = nums.length - 1;
-        int result = -1;
-        while(start<=end){
-            int mid = start + (end - start)/2;
-            if(nums[mid]==target){
-                result = mid;
-                start = mid + 1;
-            }
-            else if(nums[mid]<target){
-                start = mid + 1;
-            }
-            else{
-                end = mid - 1;
-            }
-        }
-        return result;
-    }
-    
-    public int[] searchRange(int[] nums, int target) {
-        int arr[] = new int[2];
-        arr[0] = firstOccurence(nums, target);
-        arr[1] = lastOccurence(nums, target);
-        return arr;
+    public int[] searchRange(int[] a, int target){
+		int[] ans = {-1, -1};
+		if (a == null || a.length == 0) return ans;
+		
+		ans[0] = findStartPosition(a, target);
+		ans[1] = findEndPosition(a, target);
+		
+		return ans;
     }
 }
