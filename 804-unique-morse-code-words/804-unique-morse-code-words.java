@@ -1,5 +1,5 @@
 class Solution {
-    String[] morseCodes = {
+    private final String[] morseCodes = {
         ".-",
         "-...",
         "-.-.",
@@ -29,10 +29,10 @@ class Solution {
     };
 
     public int uniqueMorseRepresentations(String[] words) {
-        Set<String> codes = new HashSet<>();
+        final Set<String> codes = new HashSet<>();
 
         for (String word : words) {
-            StringBuilder morseCode = new StringBuilder();
+            final StringBuilder morseCode = new StringBuilder();
             for (int i = 0, n = word.length(); i < n; i++) {
                 morseCode.append(morseCodes[word.charAt(i) - 'a']);
             }
