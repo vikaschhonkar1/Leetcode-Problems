@@ -6,7 +6,7 @@ class Solution {
         int high = m*n - 1;
         while (low<high){
             int mid = (low + high - 1) >> 1;
-            if (nums[mid / m][mid % m] < target)
+            if (nums[mid/m][mid%m] < target)
                 low = mid + 1;
             else 
                 high = mid;
