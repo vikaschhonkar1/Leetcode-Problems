@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 // Initial Template for Java
 import java.util.*;
 import java.lang.*;
@@ -29,6 +29,7 @@ class GFG {
         }
     }
 }
+
 // } Driver Code Ends
 
 
@@ -36,21 +37,25 @@ class Solution {
     // Function to return Breadth First Traversal of given graph.
     public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
         // Code here
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        Queue<Integer> q = new LinkedList<Integer>();
-        boolean visited[] = new boolean[V+1];
+        ArrayList<Integer> bfsList = new ArrayList<Integer>();
+        Queue<Integer> queue = new LinkedList<Integer>();
+        boolean[] visited = new boolean[V];
+        
+        queue.add(0);
         visited[0] = true;
-        q.add(0);
-        while(!q.isEmpty()){
-            int u = q.remove();
-            list.add(u);
-            for(int v: adj.get(u)){
-                if(!visited[v]){
-                    visited[v] = true;
-                    q.add(v);
+        
+        while(!queue.isEmpty()){
+            Integer currentNode = queue.poll();
+            bfsList.add(currentNode);
+            
+            for(Integer it : adj.get(currentNode)){
+                if(!visited[it]){
+                    queue.add(it);
+                    visited[it] = true;
                 }
             }
         }
-        return list;
+        
+        return bfsList;
     }
 }
