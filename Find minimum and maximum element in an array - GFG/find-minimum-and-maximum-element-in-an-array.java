@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 //Initial Template for Java
 
 import java.util.*;
@@ -40,6 +40,7 @@ class GFG {
 	}
 }
 
+
 // } Driver Code Ends
 
 
@@ -61,11 +62,13 @@ class Compute
     static pair getMinMax(long a[], long n)  
     {
         //Write your code here
-        pair pair = new pair(a[0], a[0]);
+        long min = a[0];
+        long max = a[0];
+        
         for(int i=1; i<n; i++){
-            pair.first = Math.min(pair.first, a[i]);
-            pair.second = Math.max(pair.second, a[i]);
+            if(a[i]<min) min = a[i];
+            if(a[i]>max) max = a[i];
         }
-        return pair;
+        return new pair(min, max);
     }
 }
