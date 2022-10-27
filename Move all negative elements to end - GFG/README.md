@@ -1,7 +1,6 @@
 # Move all negative elements to end
-## Easy 
-<div class="problem-statement">
-                <p></p><p><span style="font-family:arial,helvetica,sans-serif"><span style="font-size:18px">Given an unsorted array <strong>arr[]</strong> of size <strong>N</strong> having both&nbsp;negative and positive integers. The task is place all negative element at the end of array without changing the order of positive element and negative element.</span></span></p>
+## Easy
+<div class="problems_problem_content__Xm_eO"><p><span style="font-family:arial,helvetica,sans-serif"><span style="font-size:18px">Given an unsorted array <strong>arr[]</strong> of size <strong>N</strong> having both&nbsp;negative and positive integers. The task is place all negative element at the end of array without changing the order of positive element and negative element.</span></span></p>
 
 <p>&nbsp;</p>
 
@@ -38,5 +37,4 @@ You don't need to read input or print anything. Your task is to complete the fun
 <span style="font-family:arial,helvetica,sans-serif"><span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ N ≤ 10<sup>5</sup><br>
 -10<sup>5 </sup> ≤ arr[] ≤ 10<sup>5</sup></span></span></p>
- <p></p>
-            </div>
+</div>
