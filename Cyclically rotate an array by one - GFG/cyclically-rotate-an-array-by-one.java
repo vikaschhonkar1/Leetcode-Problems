@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 //Initial Template for Java
 
 import java.util.*;
@@ -34,6 +34,7 @@ class GFG {
 	}
 }
 
+
 // } Driver Code Ends
 
 
@@ -43,10 +44,10 @@ class Compute {
     
     public void rotate(int arr[], int n)
     {
-        int lastValue = arr[n-1];
+        int lastVal = arr[n-1];
         for(int i=n-1; i>0; i--){
             arr[i] = arr[i-1];
         }
-        arr[0] = lastValue;
+        arr[0] = lastVal;
     }
 }
