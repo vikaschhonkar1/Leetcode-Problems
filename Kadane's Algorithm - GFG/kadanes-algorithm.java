@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 import java.io.*;
 
 class Main {
@@ -25,6 +25,7 @@ class Main {
 	}
 }
 
+
 // } Driver Code Ends
 
 
@@ -36,13 +37,17 @@ class Solution{
     long maxSubarraySum(int arr[], int n){
         
         // Your code here
-        int ans = arr[0];
-        int sum = arr[0];
-        for(int i=1; i<n; i++){
-            sum = Math.max(arr[i], sum+arr[i]);
-            ans = Math.max(sum, ans);
+        int maxSum = Integer.MIN_VALUE;
+        int currentSum = 0;
+        
+        for(int i=0; i<n; i++){
+            currentSum += arr[i];
+            maxSum = Math.max(maxSum, currentSum);
+            
+            if(currentSum<0) currentSum = 0;
         }
-        return ans;
+         return maxSum;
+        
     }
     
 }
