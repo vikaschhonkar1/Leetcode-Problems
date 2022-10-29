@@ -78,7 +78,7 @@ class Solution {
         for(int i=0; i<V; i++){
             if(!visited[i]){
                 count++;
-                dfs(i, visited, adjList);
+                bfs(i, visited, adjList);
             }
         }
         return count;
