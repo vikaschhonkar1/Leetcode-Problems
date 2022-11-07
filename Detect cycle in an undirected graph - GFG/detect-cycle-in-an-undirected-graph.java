@@ -62,12 +62,22 @@ class Solution {
         }
         return false;
     }
+    
+    public boolean dfs(int node, int parent, ArrayList<ArrayList<Integer>> adj, boolean vis[]){
+        vis[node] = true;
+        for(int adjacentNode : adj.get(node)){
+            if(!vis[adjacentNode]){
+                if(dfs(adjacentNode, node, adj, vis)) return true;
+            } else if(adjacentNode != parent) return true;
+        }
+        return false;
+    }
     public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
         // Code here
         boolean vis[] = new boolean[V];
         for(int i=0; i<V; i++){
             if(!vis[i]){
-                if(bfs(i, adj, vis)) return true;
+                if(dfs(i, -1, adj, vis)) return true;
             }
         }
         return false;
