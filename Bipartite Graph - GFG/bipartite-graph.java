@@ -55,6 +55,15 @@ class Solution
         }
         return true;
     }
+    public boolean dfs(int node, int col, int color[], ArrayList<ArrayList<Integer>> adj){
+        color[node] = col;
+        for(int adjacentNode : adj.get(node)){
+            if(color[adjacentNode]==-1){
+                if(!dfs(adjacentNode, 1-col, color, adj)) return false;
+            } else if(color[adjacentNode]==col) return false;
+        }
+        return true;
+    }
     public boolean isBipartite(int V, ArrayList<ArrayList<Integer>>adj)
     {
         // Code here
