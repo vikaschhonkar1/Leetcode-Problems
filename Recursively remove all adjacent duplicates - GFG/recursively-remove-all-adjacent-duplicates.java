@@ -27,64 +27,29 @@ class Solution{
         StringBuilder sb = new StringBuilder(s);
         String newStr = "";
 
- 
+        if(s.length()<=1) return s;
+        
+        for(int i=0; i<sb.length()-1; i++){
+            int j = i+1;
+            boolean k = false;
 
- if(s.length()<=1)
+            while(j<sb.length() && sb.charAt(i)== sb.charAt(j)){
+                sb.deleteCharAt(j);
+                k= true;
+            }
 
- return s;
+            if(k){
+                sb.deleteCharAt(i);
+                i=i-1;      
+            }
+        }
+        
+        if(!s.equals(sb.toString()))
+            newStr= rremove(sb.toString());
 
- 
+        else 
+            newStr = sb.toString();
 
- for(int i =0; i <sb.length()-1; i++)
-
- {
-
-     int j =i+1;
-
-     boolean k =false;
-
-     while(j<sb.length() && sb.charAt(i)== sb.charAt(j))
-
-     {
-
-         
-
-         sb.deleteCharAt(j);
-
-         k= true;
-
-     }
-
-     if(k)
-
-     {
-
-         sb.deleteCharAt(i);
-
-         i=i-1;            //if we remove the char at i then we need to make sure that we process i+1 element properly. 
-
-     }
-
-     
-
- }
-
- 
-
-     if(!s.equals(sb.toString()))
-
-     newStr= rremove(sb.toString());
-
-    else 
-
-    newStr = sb.toString();
-
-      return newStr;
-
-    
-
+        return newStr;
     }    
-
- 
-
 }
