@@ -28,12 +28,13 @@ class GFG {
 // User function Template for Java
 
 class Solution {
-    int MissingNumber(int arr[], int n) {
+    int MissingNumber(int array[], int n) {
         // Your Code Here
-        long sumUptoN = ((n+1)*(n))/2;
-        long actualSum = 0;
-        
-        for(int i=0; i<n-1; i++) actualSum+=arr[i];
-        return (int)(sumUptoN-actualSum);
+        int expectedSum = (n*(n+1))/2;
+        int actualSum = 0;
+        for(int i=0; i<n-1; i++){
+            actualSum += array[i];
+        }
+        return expectedSum - actualSum;
     }
 }
