@@ -8,6 +8,8 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+// val = val * base + digit
 class Solution {
     public int getDecimalValue(ListNode head) {
         int val = head.val;
