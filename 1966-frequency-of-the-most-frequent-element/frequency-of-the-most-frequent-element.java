@@ -1,11 +1,14 @@
 class Solution {
-        public int maxFrequency(int[] A, long k) {
-        int i = 0, j;
-        Arrays.sort(A);
-        for (j = 0; j < A.length; ++j) {
-            k += A[j];
-            if (k < (long)A[j] * (j - i + 1))
-                k -= A[i++];
+    public int maxFrequency(int[] nums, long k) {
+        int i = 0;
+        int j;
+
+        Arrays.sort(nums);
+
+        for (j = 0; j < nums.length; ++j) {
+            k += nums[j];
+            if (k < (long)nums[j] * (j - i + 1))
+                k -= nums[i++];
         }
         return j - i;
     }
