@@ -32,13 +32,13 @@ class Solution {
             } else if (num >= 9) {
                 ans += "IX";
                 num -= 9;
-            }else if (num >= 5) {
+            } else if (num >= 5) {
                 ans += "V";
                 num -= 5;
             } else if (num >= 4) {
                 ans += "IV";
                 num -= 4;
-            }else  {
+            } else  {
                 ans += "I";
                 num -= 1;
             }
