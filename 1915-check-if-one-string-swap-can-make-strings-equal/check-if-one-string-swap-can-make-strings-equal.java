@@ -1,20 +1,20 @@
 class Solution {
     public boolean areAlmostEqual(String s1, String s2) {
         int count = 0;
-        int freq[] = new int[26];
+        int firstDiffIdx = 0;
+        int secondDiffIdx = 0;
         
         for (int i = 0; i < s1.length(); i++) {
-            freq[s1.charAt(i) - 'a']++;
-            freq[s2.charAt(i) - 'a']--;
-            if (s1.charAt(i) != s2.charAt(i)) count++;
+            if (s1.charAt(i) != s2.charAt(i)) {
+                count++;
+
+                if (count > 2) return false;
+                else if (count == 1) firstDiffIdx = i;
+                else secondDiffIdx = i;  
+            }
         }
 
-        if (count == 0) return true;
-        else if (count == 2) {
-            for (int i = 0; i < 26; i++) 
-                if (freq[i] != 0) return false; 
-            return true;
-        }
-        return false;
+        return s1.charAt(firstDiffIdx) == s2.charAt(secondDiffIdx) &&
+               s1.charAt(secondDiffIdx) == s2.charAt(firstDiffIdx);
     }
 }
