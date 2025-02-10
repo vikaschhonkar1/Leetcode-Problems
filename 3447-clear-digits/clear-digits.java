@@ -1,20 +1,14 @@
 class Solution {
     public String clearDigits(String s) {
-        Stack<Character> st = new Stack<>();
+        StringBuilder sb = new StringBuilder();
 
-        for (char ch: s.toCharArray()) {
-            if (ch <= '9' && ch >= '0') {
-                st.pop();
+        for (char ch : s.toCharArray()) {
+            if (Character.isDigit(ch) && sb.length() > 0) {
+                sb.deleteCharAt(sb.length() - 1);    
             } else {
-                st.push(ch);
+                sb.append(ch);
             }
         }
-
-        StringBuilder sb = new StringBuilder();
-        while (!st.isEmpty()) {
-            sb.insert(0, st.pop());
-        }
-
         return sb.toString();
     }
 }
