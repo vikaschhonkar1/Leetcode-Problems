@@ -14,14 +14,19 @@
  * }
  */
 class Solution {
-    int preIndex = 0, posIndex = 0;
+    // int preIndex = 0, posIndex = 0;
     public TreeNode constructFromPrePost(int[] pre, int[] post) {
-        TreeNode root = new TreeNode(pre[preIndex++]);
-        if (root.val != post[posIndex])
-            root.left = constructFromPrePost(pre, post);
-        if (root.val != post[posIndex])
-            root.right = constructFromPrePost(pre, post);
-        posIndex++;
-        return root;
+        Deque<TreeNode> s = new ArrayDeque<>();
+        s.offer(new TreeNode(pre[0]));
+        for (int i = 1, j = 0; i < pre.length; ++i) {
+            TreeNode node = new TreeNode(pre[i]);
+            while (s.getLast().val == post[j]) {
+                s.pollLast(); j++;
+            }
+            if (s.getLast().left == null) s.getLast().left = node;
+            else s.getLast().right = node;
+            s.offer(node);
+        }
+        return s.getFirst();
     }
 }
